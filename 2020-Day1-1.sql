@@ -205,18 +205,8 @@ VALUES
 (1469),
 (1888)
 
-SELECT	TT1.Id,
-		TT2.Id,
-		TT1.Id * TT2.Id
+SELECT	TOP 1 TT1.Id * TT2.Id
 FROM	#TemporaryTable TT1
 		INNER JOIN #TemporaryTable TT2 ON TT1.Id = 2020 - TT2.Id
-
-SELECT	TT1.Id,
-		TT2.Id,
-		TT3.Id,
-		TT1.Id * TT2.Id * TT3.Id
-FROM	#TemporaryTable TT1
-		CROSS JOIN #TemporaryTable TT2
-		INNER JOIN #TemporaryTable TT3 ON TT3.Id = 2020 - TT1.Id - TT2.Id
 
 DROP TABLE #TemporaryTable
