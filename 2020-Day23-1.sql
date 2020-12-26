@@ -147,8 +147,6 @@ WITH PutOneFirst_CTE AS
 				(((Position - @PositionOfCupOne) % @NumberOfCups) + @NumberOfCups) % @NumberOfCups + @PositionOfCupOne - 1 as Position
 	FROM		#Cups
 )
---SELECT		*
---FROM		PutOneFirst_CTE
 SELECT		STRING_AGG(Cup, '') WITHIN GROUP (ORDER BY Position)
 FROM		PutOneFirst_CTE
 WHERE		Position > 1
